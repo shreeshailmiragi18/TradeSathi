@@ -22,11 +22,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { auth } = useSelector((store) => store);
 
-  const handleNavigate=()=>{
-    if(auth.appuser){
-      auth.appuser.role==="ROLE_ADMIN"?navigate("/admin/withdrawal"):navigate("/profile")
+  const handleNavigate = () => {
+    if (auth.appuser) {
+      auth.appuser.role === "ROLE_ADMIN"
+        ? navigate("/admin/withdrawal")
+        : navigate("/profile");
     }
-  }
+  };
   return (
     <>
       <div className="px-2 py-3 border-b z-50 bg-background bg-opacity-0 sticky top-0 left-0 right-0 flex justify-between items-center">
@@ -52,8 +54,8 @@ const Navbar = () => {
                       <AvatarImage src="https://cdn.pixabay.com/photo/2021/04/30/16/47/binance-logo-6219389_1280.png" />
                     </Avatar>
                     <div>
-                      <span className="font-bold text-orange-700">Zosh</span>
-                      <span>Tread</span>
+                      <span className="font-bold text-orange-700">Trade</span>
+                      <span>Sathi</span>
                     </div>
                   </div>
                 </SheetTitle>
@@ -66,7 +68,7 @@ const Navbar = () => {
             onClick={() => navigate("/")}
             className="text-sm lg:text-base cursor-pointer"
           >
-            Zosh Treading
+            Trade Sathi
           </p>
           <div className="p-0 ml-9">
             <Button
@@ -85,7 +87,9 @@ const Navbar = () => {
             {!auth.appuser ? (
               <AvatarIcon className=" h-8 w-8" />
             ) : (
-              <AvatarFallback>{auth.appuser?.fullName[0].toUpperCase()}</AvatarFallback>
+              <AvatarFallback>
+                {auth.appuser?.fullName[0].toUpperCase()}
+              </AvatarFallback>
             )}
           </Avatar>
         </div>

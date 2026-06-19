@@ -17,15 +17,17 @@ const Profile = () => {
   const { auth } = useSelector((store) => store);
   const dispatch = useDispatch();
 
-  const handleEnableTwoStepVerification =(otp)=>{
-    console.log("EnableTwoStepVerification",otp)
-    dispatch(enableTwoStepAuthentication({jwt:localStorage.getItem("jwt"),otp}))
-  }
+  const handleEnableTwoStepVerification = (otp) => {
+    console.log("EnableTwoStepVerification", otp);
+    dispatch(
+      enableTwoStepAuthentication({ jwt: localStorage.getItem("jwt"), otp }),
+    );
+  };
 
-  const handleVerifyOtp=(otp)=>{
-    console.log("otp  - ",otp)
-    dispatch(verifyOtp({jwt:localStorage.getItem("jwt"),otp}))
-  }
+  const handleVerifyOtp = (otp) => {
+    console.log("otp  - ", otp);
+    dispatch(verifyOtp({ jwt: localStorage.getItem("jwt"), otp }));
+  };
   return (
     <div className="flex flex-col items-center mb-5">
       <div className="pt-10 w-full lg:w-[60%]">
@@ -42,11 +44,11 @@ const Profile = () => {
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Full Name : </p>
-                  <p className="text-gray-500">{"code with zosh"} </p>
+                  <p className="text-gray-500">{"Shreeshail Miragi"} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Date Of Birth : </p>
-                  <p className="text-gray-500">{"25/09/2000"} </p>
+                  <p className="text-gray-500">{"12/08/2005"} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Nationality : </p>
@@ -56,15 +58,15 @@ const Profile = () => {
               <div className="space-y-7">
                 <div className="flex">
                   <p className="w-[9rem]">Address : </p>
-                  <p className="text-gray-500">{"code with zosh"} </p>
+                  <p className="text-gray-500">{"Shreeshail Miragi"} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">City : </p>
-                  <p className="text-gray-500">{"mumbai"} </p>
+                  <p className="text-gray-500">{"Karnataka"} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Postcode : </p>
-                  <p className="text-gray-500">{345020} </p>
+                  <p className="text-gray-500">{560001} </p>
                 </div>
                 <div className="flex">
                   <p className="w-[9rem]">Country : </p>
@@ -75,7 +77,7 @@ const Profile = () => {
           </CardContent>
         </Card>
         <div className="mt-6">
-        <Card className="w-full">
+          <Card className="w-full">
             <CardHeader className="pb-7">
               <div className="flex items-center gap-3">
                 <CardTitle>2 Step Verification</CardTitle>
@@ -90,7 +92,6 @@ const Profile = () => {
               </div>
             </CardHeader>
             <CardContent className="space-y-5">
-              
               <div>
                 <Dialog>
                   <DialogTrigger>
@@ -102,7 +103,9 @@ const Profile = () => {
                         verify your account
                       </DialogTitle>
                     </DialogHeader>
-                    <AccountVarificationForm handleSubmit={handleEnableTwoStepVerification} />
+                    <AccountVarificationForm
+                      handleSubmit={handleEnableTwoStepVerification}
+                    />
                   </DialogContent>
                 </Dialog>
               </div>
@@ -171,7 +174,6 @@ const Profile = () => {
                 <Dialog>
                   <DialogTrigger>
                     <Button>Verify Account</Button>
-                    
                   </DialogTrigger>
                   <DialogContent className="">
                     <DialogHeader className="">
@@ -179,7 +181,7 @@ const Profile = () => {
                         verify your account
                       </DialogTitle>
                     </DialogHeader>
-                    <AccountVarificationForm handleSubmit={handleVerifyOtp}/>
+                    <AccountVarificationForm handleSubmit={handleVerifyOtp} />
                   </DialogContent>
                 </Dialog>
               </div>
